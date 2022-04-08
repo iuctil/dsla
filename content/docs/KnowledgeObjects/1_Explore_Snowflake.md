@@ -27,7 +27,7 @@ It is a set of data warehousing managed services for structural, semi-structural
 
 ## Cloud Datawarehouse Architecture
 
-![alt text](../img/snowflake_one.png)
+![Snowflake](/images/snowflake_one.png "Snowflake")
 
 ## Amazon Redshift: The first widely adopted cloud data warehouse.
 - For many years, data warehousing was only available as an on-premise solution. Then in November 2012, Amazon Web Services (AWS) launched Redshift, a fully managed, petabyte-scale data warehouse service in the cloud. Although not the first cloud-based data warehouse, it was the first to gain market share through adoption. Redshift’s SQL dialect is based on PostgreSQL, which is well understood by analysts worldwide, and uses an architecture familiar to many on-premises data warehouses users.
@@ -51,7 +51,7 @@ It is a set of data warehousing managed services for structural, semi-structural
 
 ## Snowflake Topology. Snowflake can be built either on GCP, AWS, or Azure. As a customer/user, you need to select one cloud offering during the initial setup.
 
-![alt text](../img/snowflake_two.png)
+![Snowflake](/images/snowflake_two.png "Snowflake")
 
 ## Training
 - Snowflake provides one month free trail account to practise cloud services.
@@ -66,9 +66,9 @@ It is a set of data warehousing managed services for structural, semi-structural
 		- Choose Standard Subscription.
 		- Choose AWS, GCP, or Azure.
 		- Refer the below screenshot.
-			- ![alt text](../img/snowflake_three.png)
-			- ![alt text](../img/snowflake_four.png)
-			- ![alt text](../img/snowflake_five.png)
+			- ![Snowflake](/images/snowflake_three.png "Snowflake") 
+			- ![Snowflake](/images/snowflake_four.png "Snowflake") 
+			- ![Snowflake](/images/snowflake_five.png "Snowflake") 
 	
 
 ## References

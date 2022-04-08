@@ -1,3 +1,24 @@
+---
+title: "AWS Kinesis"
+description: "AWS Kinesis"
+lead: "AWS Kinesis"
+keywords: 
+    - Data Engineering
+    - AWS
+    - Cloud
+contributors:
+    - Suresh Kumar Balasundaramsivaprakash
+date: 2022-03-01T00:00:00+00:00
+lastmod: 2022-03-19T00:00:00+00:00
+draft: false
+toc: true
+plotly: false
+images: []
+weight: 100
+menu:
+    docs:
+        parent: "KnowledgeObjects"
+---
 # AWS Kinesis
 ![alt text](https://docs.aws.amazon.com/streams/latest/dev/images/architecture.png)
 ##  What is AWS Kinesis and what functionality does it provide for us?

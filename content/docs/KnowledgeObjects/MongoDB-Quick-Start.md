@@ -1,3 +1,23 @@
+---
+title: "MongoDB Quick-Start"
+description: "MongoDB Quick-Start"
+lead: "MongoDB Quick-Start"
+keywords: 
+    - Data Science
+    - NoSql
+contributors:
+    - Leon Hwang 
+date: 2022-03-01T00:00:00+00:00
+lastmod: 2022-03-19T00:00:00+00:00
+draft: false
+toc: true
+plotly: false
+images: []
+weight: 100
+menu:
+    docs:
+        parent: "KnowledgeObjects"
+---
 # MongoDB Quick-Start
 
 MongoDB is a document-oriented database and one of the most popular NoSQL databases. It uses JSON-like documents. MongoDB offers both local and cloud-hosted options, called [MongoDB Atlas](https://www.mongodb.com/cloud/atlas?tck=docs_server).
@@ -6,7 +26,7 @@ A record in MongoDB is a **document** which is composed of **field-value** pairs
 
 
 
-![alt JSON <> Python <> MongoDB](../img/JSON-Python-MongoDB.png)
+![JSON <> Python <> MongoDB](/images/JSON-Python-MongoDB.png "JSON <> Python <> MongoDB")
 
 
 
