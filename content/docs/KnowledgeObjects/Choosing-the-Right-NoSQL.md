@@ -1,3 +1,23 @@
+---
+title: "Quick Comparions of NoSQL Databases"
+description: "Quick Comparions of NoSQL Databases"
+lead: "Quick Comparions of NoSQL Databases"
+keywords: 
+    - Data Science
+    - NoSql
+contributors:
+    - Leon Hwang 
+date: 2022-03-01T00:00:00+00:00
+lastmod: 2022-03-19T00:00:00+00:00
+draft: false
+toc: true
+plotly: false
+images: []
+weight: 100
+menu:
+    docs:
+        parent: "KnowledgeObjects"
+---
 # Quick Comparions of NoSQL Databases
 
 Over the past decade, the interest and demand of NoSQL databases have increased dramatically. 
@@ -6,11 +26,12 @@ Relational databases are known for robustness and consistency, and have been the
 
 There are hundreds of different NoSQL databases available today and it is difficult to find the right database for your task.  We will compare several popular NoSQL databases.
 
-![alt NoSQL Database Types](../img/NoSQL-DB-Types.png)
+![NoSQL Database Types](/images/NoSQL-DB-Types.png "NoSQL Database Type")
+
 
 NoSQL DBs are not an exception to CAP Theorem which states that a distribute data store is unable to provide all three of consistency, availability, and partition-tolerance at the same time.
 
-![alt CAP Theorem](../img/CAP-Theorem.png)
+![CAP Theorem](/images/NoSQL-DB-Types.png "CAP Theorem")
 
 
 

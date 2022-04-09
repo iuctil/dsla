@@ -24,7 +24,7 @@ menu:
 ## What Is Google Data Studio?
 Google Data Studio is a free tool created by Google which can be used to create interactive data visualizations such as charts, tables, and graphs. The tool has many built-in integrations with data storage services and analytics tool such Amazon Redshift, BigQuery, MySQL, Microsoft SQL Server, Google Analytics, and more.
 
-![alt Data Studio Dashboard Example](../img/datastudioss.png)
+![Data Studio Dashboard Example](/images/datastudioss.png "Data Studio Dashboard Example")
 
 ## Who Should Use Google Data Studio?
 Google Data Studio is a powerful free tool that may satisfy requirements for many data visualization projects. The user interface and built in tools are intuitive and fairly easy to learn, regardless of skill level. Beginners and skilled experts can both find applications for Google Data Studio. Data Studio has the ability to make a variety of different visualizations including:
@@ -68,8 +68,10 @@ Depending on the size, security, and specific needs of your data, there may be l
 
 ## Alternative Options
 - Tableau
-- Datorama
-- PowerBI
+- Datorama (Salesforce)
+- PowerBI (Microsoft)
+- Looker
+- QuickSight (Amazon)
 
 ## References
 1. Google's official site - https://marketingplatform.google.com/about/data-studio/
