@@ -1,15 +1,15 @@
 ---
 title: "Google Data Studio"
 description: "Google Data Studio is a free tool created by Google used to visualize data and create dashboards."
-lead: "Google Data Studio is a free tool created by Google used to visualize data and create dashboards."
+#lead: "Google Data Studio is a free tool created by Google used to visualize data and create dashboards."
 keywords: 
-    - data visualization
-    - dashboards
+    - Data Visualization
+    - Dashboards
 contributors:
     - Andrew Cruez
 date: 2022-02-09T00:00:00+00:00
-lastmod: 2022-02-09T00:00:00+00:00
-draft: true
+lastmod: 2022-04-11T00:00:00+00:00
+draft: false
 toc: true
 plotly: false
 images: []
@@ -18,8 +18,6 @@ menu:
     docs:
         parent: "KnowledgeObjects"
 ---
-
-# Google Data Studio
 
 ## What Is Google Data Studio?
 Google Data Studio is a free tool created by Google which can be used to create interactive data visualizations such as charts, tables, and graphs. The tool has many built-in integrations with data storage services and analytics tool such Amazon Redshift, BigQuery, MySQL, Microsoft SQL Server, Google Analytics, and more.

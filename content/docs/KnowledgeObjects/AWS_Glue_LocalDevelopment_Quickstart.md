@@ -1,16 +1,16 @@
 ---
-title: " AWS Glue Local Development Quickstart"
-description: " AWS Glue Local Development Quickstart"
-lead: " AWS Glue Local Development Quickstart"
+title: "AWS Glue Local Development Quickstart"
+description: "AWS Glue Local Development Quickstart"
+#lead: "AWS Glue Local Development Quickstart"
 keywords: 
-    - data visualization
-    - dashboards
+    - Data ETL
+    - Data Enginnering
 contributors:
     - Pankaj Dange
     - Suresh Kumar Balasundaramsivaprakash
-date: 2022-02-09T00:00:00+00:00
-lastmod: 2022-02-09T00:00:00+00:00
-draft: true
+date: 2022-04-02T00:00:00+00:00
+lastmod: 2022-04-11T00:00:00+00:00
+draft: false
 toc: true
 plotly: false
 images: []
@@ -19,12 +19,10 @@ menu:
     docs:
         parent: "KnowledgeObjects"
 ---
-# AWS Glue Local Development Quickstart
-
-![AWS Glue](/images/glue_local_logo.png "AWS Glue")
+![AWS Glue Local](/images/glue_local_logo.png "AWS Glue Local")
 
 
-#### In this article, we will learn how to setup AWS Glue using Docker and Jupyter notebook (with sample ETL code) on local laptop or desktop (Windows). This quick learning article will be super useful for users who wants to get started developing data transformation script without waiting to get an access for AWS cloud.
+ In this article, we will learn how to setup AWS Glue using Docker and Jupyter notebook (with sample ETL code) on local laptop or desktop (Windows). This quick learning article will be super useful for users who wants to get started developing data transformation script without waiting to get an access for AWS cloud.
 
 Note: The goal is to get up and running with AWS Glue ETL functions in the shortest possible time, at no cost and without any AWS environment dependency. Hurrey 0$ !!!
 
@@ -51,18 +49,18 @@ Note: The goal is to get up and running with AWS Glue ETL functions in the short
      docker run -itd -p 8888:8888 -p 4040:4040  --name dskb_glue_2.0.0 amazon/aws-glue-libs:glue_libs_2.0.0_image_01 /home/glue_user/jupyter/jupyter_start.sh -e DISABLE_SSL="true"
     ```
 4. Go to Docker Desktop and navigate to Images and click on Run to start the container
-    ![AWS Glue](/images/glue_docker_desktop_img.PNG "AWS Glue")
+    ![AWS Glue Local](/images/glue_docker_desktop_img.PNG "AWS Glue Local")
 
-    ### Congratulations !!  you have successfully setup Glue and Jupyter notebook using Docker Container
+- Congratulations !!  you have successfully setup Glue and Jupyter notebook using Docker Container
 
 5. If you have to explore more within docker container check below options
-     ![AWS Glue](/images/glue_docker_insight.PNG "AWS Glue")
+     ![AWS Glue Local](/images/glue_docker_insight.PNG "AWS Glue Local")
 
-### Build & Run Glue ETL/Data Exploration scripts  using Jupyter Notebook 
-#### We use small example datasets for our use case and go through the transformations of several AWS Glue ETL PySpark functions: Filter, SelectFields, Map and Write Dynamic Frame.
+###### Build & Run Glue ETL/Data Exploration scripts  using Jupyter Notebook 
+- We use small example datasets for our use case and go through the transformations of several AWS Glue ETL PySpark functions: Filter, SelectFields, Map and Write Dynamic Frame.
 
 1. Open browser on your local machine and type https://127.0.0.1:8888/lab/
-    ![AWS Glue](/images/glue_jupyter_local.PNG "AWS Glue")
+    ![AWS Glue Local](/images/glue_jupyter_local.PNG "AWS Glue Local")
 2. Create your notbook as mentioned in above image, load required glue libs,
 ```python
 import sys

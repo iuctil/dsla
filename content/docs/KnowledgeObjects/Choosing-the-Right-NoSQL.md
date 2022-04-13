@@ -1,7 +1,7 @@
 ---
 title: "Quick Comparions of NoSQL Databases"
 description: "Quick Comparions of NoSQL Databases"
-lead: "Quick Comparions of NoSQL Databases"
+#lead: "Quick Comparions of NoSQL Databases"
 keywords: 
     - Data Science
     - NoSql
@@ -18,8 +18,6 @@ menu:
     docs:
         parent: "KnowledgeObjects"
 ---
-# Quick Comparions of NoSQL Databases
-
 Over the past decade, the interest and demand of NoSQL databases have increased dramatically. 
 
 Relational databases are known for robustness and consistency, and have been the major players in the DB market for a long time. However, when they handle large-scale data, they suffer from scalability and bad performance.  NoSQL is complementary to SQL and it has various formats for storage that can support large volume of different types of data with high velocity.
