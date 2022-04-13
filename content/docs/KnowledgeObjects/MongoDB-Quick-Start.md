@@ -1,7 +1,7 @@
 ---
 title: "MongoDB Quick-Start"
 description: "MongoDB Quick-Start"
-lead: "MongoDB Quick-Start"
+#lead: "MongoDB Quick-Start"
 keywords: 
     - Data Science
     - NoSql
@@ -18,8 +18,6 @@ menu:
     docs:
         parent: "KnowledgeObjects"
 ---
-# MongoDB Quick-Start
-
 MongoDB is a document-oriented database and one of the most popular NoSQL databases. It uses JSON-like documents. MongoDB offers both local and cloud-hosted options, called [MongoDB Atlas](https://www.mongodb.com/cloud/atlas?tck=docs_server).
 
 A record in MongoDB is a **document** which is composed of **field-value** pairs similar to JSON objects. MongoDB stores documents in **collections** that is equivalent to tables in relational databases. 

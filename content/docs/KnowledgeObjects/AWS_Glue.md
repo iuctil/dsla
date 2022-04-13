@@ -22,8 +22,6 @@ menu:
     docs:
         parent: "KnowledgeObjects"
 ---
-# AWS Glue
-
 ## 	What is Glue and what functionality does it provide for us?
 
 Glue is a fully managed serverless extract-transform-load (ETL) service that helps us organize and format our data for use with a data warehouse like Redshift, for example,
@@ -70,7 +68,7 @@ AWS Glue is integrated across a wide range of AWS services, so it natively suppo
 - Even it is serverless and managed service it needs expertise in apache spark to do customizations compared to Talend, Informatics or similar ETL tools.
 - AWS Glue is good match with AWS services(S3, Redshift, RDS) but it is not easy to use with other non AWS services or multicloud environment.
 - It is not ideal for real-time data use case
-- 
+
 ## Alternative Options
 - AWS Batch
 - AWS DMS - Data Migration Tool

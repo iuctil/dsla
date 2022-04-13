@@ -19,7 +19,6 @@ menu:
     docs:
         parent: "KnowledgeObjects"
 ---
-# AWS Kinesis
 ![alt text](https://docs.aws.amazon.com/streams/latest/dev/images/architecture.png)
 ##  What is AWS Kinesis and what functionality does it provide for us?
 
@@ -85,8 +84,8 @@ Amazon Kinesis can handle any amount of streaming data and process data from man
 - TIBCO Spotfire
 
 ## Video on basics of AWS Kinesis
-![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)(https://www.youtube.com/watch?v=ZjKzGl0O6j8&ab_channel=CloudGuru)
-
+![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)
+{{< youtube id="ZjKzGl0O6j8&ab_channel=CloudGuru" >}}
 
 ## References
 1. https://aws.amazon.com/kinesis/

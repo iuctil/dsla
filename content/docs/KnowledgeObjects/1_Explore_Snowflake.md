@@ -1,5 +1,23 @@
-# Snowflake Datawarehouse Solution, A Cloud Datawarehouse solution.
-
+---
+title: "Snowflake Datawarehouse Solution Part 1"
+description: "Snowflake Datawarehouse Solution, A Cloud Datawarehouse solution."
+#lead: "Google Data Studio is a free tool created by Google used to visualize data and create dashboards."
+keywords: 
+    - Data warehouse
+    - BigData
+contributors:
+    - Vishwanadh Mandala
+date: 2022-02-19T00:00:00+00:00
+lastmod: 2022-04-11T00:00:00+00:00
+draft: false
+toc: true
+plotly: false
+images: []
+weight: 100
+menu:
+    docs:
+        parent: "KnowledgeObjects"
+---
 ## 	What is Cloud Datawarehouse solution?
 
 It is a set of data warehousing managed services for structural, semi-structural, and unstructured data storage needs. And also, cloud Dataware housing solutions optimized for data engineering, BI, and analytical solutions.
