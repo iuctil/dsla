@@ -1,7 +1,7 @@
 ---
 title: "AWS Glue"
 description: "AWS Glue - Fully managed serverless extract-transform-load (ETL) service"
-lead: "AWS Glue - Fully managed serverless extract-transform-load (ETL) service"
+#lead: "AWS Glue - Fully managed serverless extract-transform-load (ETL) service"
 keywords: 
     - Data Science
     - AWS
@@ -24,8 +24,7 @@ menu:
 ---
 ## 	What is Glue and what functionality does it provide for us?
 
-Glue is a fully managed serverless extract-transform-load (ETL) service that helps us organize and format our data for use with a data warehouse like Redshift, for example,
-or if we wanted to, we could use it with data lake in S3 (Simple Storage Service). 
+AWS Glue is a serverless data integration service that makes it easy to discover, prepare, and combine data for analytics, machine learning, and application development. AWS Glue provides all the capabilities needed for data integration so that you can start analyzing your data and putting it to use in minutes instead of months. AWS Glue provides both visual and code-based interfaces to make data integration easier. Users can easily find and access data using the AWS Glue Data Catalog. Data engineers and ETL (extract, transform, and load) developers can visually create, run, and monitor ETL workflows with a few clicks in AWS Glue Studio [3].
 
 ![AWS Glue](/images/glue1.png "AWS Glue")
 
@@ -82,3 +81,4 @@ AWS Glue is integrated across a wide range of AWS services, so it natively suppo
 ## References
 1. Amazon’s official documentation - https://docs.aws.amazon.com/glue/index.html
 2. https://www.gartner.com/reviews/market/data-integration-tools/vendor/amazon-web-services/product/aws-glue/alternatives
+3. https://aws.amazon.com/glue/

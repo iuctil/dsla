@@ -24,7 +24,7 @@ menu:
 
  In this article, we will learn how to setup AWS Glue using Docker and Jupyter notebook (with sample ETL code) on local laptop or desktop (Windows). This quick learning article will be super useful for users who wants to get started developing data transformation script without waiting to get an access for AWS cloud.
 
-Note: The goal is to get up and running with AWS Glue ETL functions in the shortest possible time, at no cost and without any AWS environment dependency. Hurrey 0$ !!!
+Note: The goal is to get up and running with AWS Glue ETL functions in the shortest possible time, at no cost and without any AWS environment dependency.
 
 ## 	Prerequisites
 - Before you start, make sure that Docker is installed and the Docker daemon is running. For installation instructions, see the Docker documentation for Windows. 
@@ -42,7 +42,8 @@ Note: The goal is to get up and running with AWS Glue ETL functions in the short
     ```
         - docker ps
     ```
-    ![AWS Glue](/images/glue_docker1.PNG "AWS Glue")
+    
+   !["AWS Glue"](/images/glue_docker1.PNG "AWS Glue")
 
 3. Run docker image with below command using powershell
     ```
