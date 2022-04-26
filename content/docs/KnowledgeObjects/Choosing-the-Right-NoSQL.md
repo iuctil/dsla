@@ -29,7 +29,7 @@ There are hundreds of different NoSQL databases available today and it is diffic
 
 NoSQL DBs are not an exception to CAP Theorem which states that a distribute data store is unable to provide all three of consistency, availability, and partition-tolerance at the same time.
 
-![CAP Theorem](/images/NoSQL-DB-Types.png "CAP Theorem")
+![CAP Theorem](/images/CAP-Theorem.png "CAP Theorem")
 
 
 
