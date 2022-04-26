@@ -84,11 +84,11 @@ Amazon Kinesis can handle any amount of streaming data and process data from man
 - TIBCO Spotfire
 
 ## Video on basics of AWS Kinesis
-![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)
-{{< youtube id="ZjKzGl0O6j8&ab_channel=CloudGuru" >}}
+
+{{< youtube id="ZjKzGl0O6j8" >}}
 
 ## References
-1. https://aws.amazon.com/kinesis/
-2. https://docs.aws.amazon.com/streams/latest/dev/images/architecture.png
+1. AWS Kinesis [https://aws.amazon.com/kinesis/](url)
+2. Architecture Image [https://docs.aws.amazon.com/streams/latest/dev/images/architecture.png](url)
 3. https://cloudacademy.com/learning-paths/getting-started-with-amazon-kinesis-550/
 4. https://www.youtube.com/watch?v=ZjKzGl0O6j8&ab_channel=CloudGuru

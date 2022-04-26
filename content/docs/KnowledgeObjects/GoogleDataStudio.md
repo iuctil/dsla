@@ -1,15 +1,15 @@
 ---
 title: "Google Data Studio"
 description: "Google Data Studio is a free tool created by Google used to visualize data and create dashboards."
-#lead: "Google Data Studio is a free tool created by Google used to visualize data and create dashboards."
+lead: "Google Data Studio is a free tool created by Google used to visualize data and create dashboards."
 keywords: 
-    - Data Visualization
-    - Dashboards
+    - data visualization
+    - dashboards
 contributors:
     - Andrew Cruez
 date: 2022-02-09T00:00:00+00:00
-lastmod: 2022-04-11T00:00:00+00:00
-draft: false
+lastmod: 2022-02-09T00:00:00+00:00
+draft: true
 toc: true
 plotly: false
 images: []
@@ -19,29 +19,15 @@ menu:
         parent: "KnowledgeObjects"
 ---
 
+# Google Data Studio
+
 ## What Is Google Data Studio?
 Google Data Studio is a free tool created by Google which can be used to create interactive data visualizations such as charts, tables, and graphs. The tool has many built-in integrations with data storage services and analytics tool such Amazon Redshift, BigQuery, MySQL, Microsoft SQL Server, Google Analytics, and more.
 
-![Data Studio Dashboard Example](/images/datastudioss.png "Data Studio Dashboard Example")
+An interactive view-only demo dashboard from Google can be viewed [here.](https://datastudio.google.com/u/0/reporting/0B_U5RNpwhcE6TmpwV2hBOGdKYWM/page/qlD)
 
 ## Who Should Use Google Data Studio?
-Google Data Studio is a powerful free tool that may satisfy requirements for many data visualization projects. The user interface and built in tools are intuitive and fairly easy to learn, regardless of skill level. Beginners and skilled experts can both find applications for Google Data Studio. Data Studio has the ability to make a variety of different visualizations including:
-- Time Series Chart
-- Column Chart
-- Combo Chart
-- Pie Chart
-- Table
-- Bubble Map
-- Filled Map
-- Heatmap
-- Geo Chart
-- Scorecard
-- Scatter Chart
-- Bullet Chart
-- Stacked Area Chart
-- Pivot Table
-- Treemap
-- Gauge
+Google Data Studio is a powerful free tool that may satisfy requirements for many data visualization projects. The user interface and built in tools are intuitive and fairly easy to learn, regardless of skill level. Beginners and skilled experts can both find applications for Google Data Studio. Data Studio has the ability to make a variety of different visualizations including time series charts, bar chars, treemaps, and more. A list of all chart types can be found [here.](https://michaelhoweely.com/2019/04/14/an-overview-of-all-google-data-studio-chart-types-in-2019/)
 
 Depending on the size, security, and specific needs of your data, there may be limitations which make Google Data Studio a less than ideal choice. You might consider using a different visualization tool if:
 - The speed of the dashboard is important. Data Studio can run into long load times if the amount of data being processed is too large.
