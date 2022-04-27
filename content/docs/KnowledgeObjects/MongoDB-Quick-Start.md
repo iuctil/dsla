@@ -20,17 +20,29 @@ menu:
 ---
 MongoDB is a document-oriented database and one of the most popular NoSQL databases. It uses JSON-like documents. MongoDB offers both local and cloud-hosted options, called [MongoDB Atlas](https://www.mongodb.com/cloud/atlas?tck=docs_server).
 
-A record in MongoDB is a **document** which is composed of **field-value** pairs similar to JSON objects. MongoDB stores documents in **collections** that is equivalent to tables in relational databases. 
+A record in MongoDB is a **document** which is composed of **field-value** pairs similar to JSON objects. MongoDB stores documents in **collections** that is equivalent to tables in relational databases. Internally MongoDB stores a binary representation of JSON known as BSON. This allows MongoDB to provide data types like decimal that are not defined in the JSON specification. For more information on the BSON spec check out the following URL: [http://bsonspec.org](http://bsonspec.org).
 
-
-
-![JSON <> Python <> MongoDB](/images/JSON-Python-MongoDB.png "JSON <> Python <> MongoDB")
 
 
 
 ##  Basic Commands
 
-MongoDB supports a rich query language to support CRUD operations, data aggregation, text search, as well as geospatial queries. MondoDB shell supports the javascript style syntax. Here are some basic commands. You can find more MongoDB methods [here](https://docs.mongodb.com/manual/reference/method/).
+MongoDB supports a rich query language to support CRUD operations, data aggregation, text search, as well as geospatial queries.  
+
+The following list shows the various SQL terminology and concepts and the corresponding ones in MongDB. 
+
+- Database -> Database
+- Table -> Collection
+- Row -> Document
+- Column -> Field
+- Index -> Index
+- Joins -> $lookup (for embedded documents)
+- Primary key -> Primary key (in MongoDB, _id field)
+- Transactions -> Transactions
+
+
+
+MondoDB shell supports the javascript style syntax. Here are some basic commands. You can find more MongoDB methods [here](https://docs.mongodb.com/manual/reference/method/).
 
 
 
@@ -283,172 +295,25 @@ db.coll.findOneAndDelete({"name": "Max"})
 
 
 
-## Using MongoDB with Python
+### Aggregation
 
-While there are various python libraries for MongoDB, `pymongo` is one of the most popular one. 
-
-
-
-**Connection**
-
-```python
-from pymongo import MongoClient
-
-# default host and port
-client = MongoClient() 
-# specify host and port
-client = MongoClient('localhost', 27017) 
-# use URI
-client = MongoClient('mongodb://localhost:27017/')
-```
+Aggregation operates on multiple documents and returns computed results such as the total, average, min/max values, etc.. To perform aggregation operations, you can use aggregation pipelines or single purpose aggregation methods.
 
 
 
-**Getting a Database**
+**Single Purpose Aggregation Methods**
 
-```python
-# access db using attribute style
-db = client.test_database
-# the following won't work with attribute style because of `-`
-# access db using dictionary style
-db = client['test-database']
-```
+The single purpose aggregation methods aggregate documents from a single collection. The methods are simple but lack the capabilities of an aggregation pipeline. For example,
+
+- estimatedDocumentCount(): returns an approximate count of the documents in a collection or a view.
+- count(): returns a count of the number of documents in a collection or a view.
+- distinct(): returns an array of documents that have distinct values for the specified field.
 
 
 
-**Getting a Collection**
+**Aggregation Pipelines**
 
-```python
-# list all of the collections in the database
-db.list_collection_names()
-
-# access db using attribute style
-collection = db.test_collection
-# the following won't work with attribute style because of `-`
-# access db using dictionary style
-collection = db['test-collection']
-```
-
-
-
-### CRUD
-
-**CREATE**
-
-```python
-import datetime
-
-# insert single document
-post = {
-  "author": "Mike",
-  "text": "My first blog post!",
-  "tags": ["mongodb", "python", "pymongo"],
-  # pymongo converts native python types to/from the appropriate BSON types
-  "date": datetime.datetime.utcnow()}
-
-# posts is the collection
-posts.insert_one(post)
-
-# insert multiple documents
-bulk_post = [{
-  "author": "Mike",
-  "text": "My first blog post!",
-  "tags": ["mongodb", "python", "pymongo"],
-  "date": datetime.datetime.utcnow()}, {
-  "author": "Bob",
-  "text": "I love MongoDB",
-  "tags": ["mongodb"],
-  "date": datetime.datetime.utcnow()}]  
-
-posts.insert_many([post])
-```
-
-**READ**
-
-```python
-# returns a single document matching a query
-# None if no match is found
-posts.find_one()
-posts.find_one({"author": "Mike"})
-
-# `_id` is a special value in ObjectId
-# if post_id is already an ObjectId
-posts.find_one({"_id": post_id}) 
-# if post_id is not an ObjectId
-posts.find_one({"_id": ObjectId(post_id)})
-# `_id` is not a string
-posts.find_one({"_id": str(post_id)}) # No result
-
-# returns multiple documents
-# `find` returns a cursor instance
-for post in posts.find({"author": "Mike"}): 
-	print(post)
-
-# counting
-posts.count_documents({})
-posts.count_documents({"author": "Mike"})
-# value in a range: `$in`
-posts.count_documents({"author": {"$in": ["Mike", "Bob"]}})
-# not equal: `$ne`
-posts.count_documents({"author": {"$ne": "Mike"}})
-
-# advanced queries
-# `$lt` means less than
-for post in posts.find(
-  		{"date": {"$lt": datetime.datetime(2009, 11, 12, 12)}}
-		).sort("author"):
-  print(post)
-```
-
-**UPDATE**
-
-```python
-# update one document
-result = posts.update_one(
-  {"author": "Mike"},
-	{"text": "Hellp PyMongo!"})
-
-print(result.matched_count) # returns 1
-print(result.modified_count) # returns 1
-
-# returns the original version of the document
-result = posts.find_one_and_update(
-  {"author": "Mike"},
-	{"text": "Hellp PyMongo!"})
-
-# returns the updated version of the document
-result = posts.find_one_and_update(
-  {"author": "Mike"},
-	{"text": "Hellp PyMongo!"},
-	return_document=ReturnDocument.AFTER)
-
-# update if found; otherwise, insert a new document
-result = posts.update_one(
-  {"author": "Mike"},
-	{"text": "Hellp PyMongo!"},
-	upsert=True)
-
-# update all documents that `author` is `Mike`
-result = posts.update_many(
-  {"author": "Mike"},
-	{"text": "Hellp PyMongo!"})
-```
-
-**DELETE**
-
-```python
-# delete one document
-posts.delete_one({"author": "Mike"})
-
-# delete all documents that `author` is `Mike`
-posts.delete_many({"author": "Mike"})
-```
-
-
-
-## Aggregation
-
-Aggregation operates on multiple documents and returns computed results such as the total, average, min/max values, etc.. For example, the following code filters the pizza order documents to pizzas with a size of medium, groups them by pizza name, and calculate the total order quantity for each pizza name. 
+An aggregation pipeline consists of one or more stages that process documents. The following code filters the pizza order documents to pizzas with a size of medium, groups them by pizza name, and calculate the total order quantity for each pizza name. 
 
 ```javascript
 // orders collection
@@ -493,7 +358,7 @@ The following example calculates the total pizza order value and average order q
 db.orders.aggregate( [
    // Stage 1: Filter pizza order documents by date range
    {$match: {
-       "date": { $gte: new ISODate( "2020-01-30" ), $lt: new ISODate( "2022-01-30" ) }
+       "date": { $gte: new ISODate("2020-01-30"), $lt: new ISODate("2022-01-30") }
    }},
    // Stage 2: Group remaining documents by date and calculate results
    {$group: {
@@ -514,52 +379,168 @@ db.orders.aggregate( [
 ]
 ```
 
-### Using Aggregation with Python
 
-```python
-# Aggregate
-cursor = db.laureates.aggregate([
-  {"$match": {"bornCountry": "USA"}},
-  {"$project": {"prizes.year": 1}},
-  {"$limit": 3}
-) ])
 
-# Access the aggregation result via the cursor
-for doc in cursor:
-  print(doc["prizes"])
-  
-# Example output
-[{'year': '1923'}]
-[{'year': '1927'}]
-[{'year': '1936'}]
+### Indexes
+
+Indexes are a small portion of the collection's data set in an easy to traverse form to support the efficient execution of queries in MongoDB. The index stores the value of a specific field or set of fields, ordered by the value of the field. By default, MongoDB creates the `_id` index during the creation of a collection and you cannot drop this index. To create an index, you use `db.collection.createIndex()`, and `db.collection.getIndexes()` to get indexes.
+
+
+
+**Single Field Index**
+
+```javascript
+// create a single field index on the name field
+// if an index of the same specification does not already exist. 
+// -1 means descending order
+db.collection.createIndex( { name: -1 } )
 ```
 
-```python
-# Adding sort and skip
-from collections import OrderedDict
 
-list(db.laureates.aggregate([
-    {"$match": {"bornCountry": "USA"}},
-    {"$project": {"prizes.year": 1, "_id": 0}},
-    {"$sort": OrderedDict([("prizes.year", 1)])},
-    {"$skip": 1},
-    {"$limit": 3}
-]))
 
-# Example output
-[{'prizes': [{'year': '1912'}]},
- {'prizes': [{'year': '1914'}]},
- {'prizes': [{'year': '1919'}]}]
+**Compound Index**
+
+```javascript
+// create a compound index with the name item_1_quantity_-1
+db.products.createIndex(
+  { item: 1, quantity: -1 }
+}
+
+// create a compound index with a custom name
+db.products.createIndex(
+  { item: 1, quantity: -1 } ,
+  { name: "query for inventory" }
+)
 ```
 
-```python
-# Multi-parameter operator expression
-db.laureates.aggregate([
-    {"$project": {"solo_winner": {"$in": ["1", "$prizes.share"]}}}
-]).next()
 
-# Example output
-{'_id': ObjectId('5bd3a610053b1704219e19d4'), 'solo_winner': True}
+
+**Multikey Index**
+
+```javascript
+// create a multikey index on array fields. For example, 
+// ratings: [ 2, 5, 9 ]
+// stock: [{ size: "M", color: "blue", quantity: 15 }]
+db.products.createIndex( { ratings: 1 } )
+db.products.createIndex( { "stock.size": 1, "stock.quantity": 1 } )
+```
+
+
+
+**Geospartial Index**
+
+Geospartial indexes support efficient queries of geospatial coordinate data.
+
+```javascript
+// create a document with the loc field with coordinates
+db.places.insert({
+      loc : { type: "Point", coordinates: [ -73.97, 40.77 ] },
+      name: "Central Park",
+      category : "Parks"})
+
+// create a 2dsphere index on the loc field
+db.places.createIndex( { loc : "2dsphere" } )
+
+// create a compound index with 2dsphere
+db.places.createIndex( { loc : "2dsphere" , category : -1, name: 1 } )
+```
+
+
+
+**Text Index**
+
+Text indexes support searching for string content in a collection. These text indexes do not store language-specific *stop* words (e.g. "the", "a", "or") and *stem* the words in a collection to only store root words.
+
+```javascript
+// create an index on the comments field
+db.reviews.createIndex( { comments: "text" } )
+
+// create an index on multiple fields
+db.reviews.createIndex( { subject: "text", comments: "text" } )
+
+// create an index on multiple fields with different weights
+// the default weight is 1 if not specified
+db.reviews.createIndex( 
+  { subject: "text", comments: "text" },
+  { weights: { subject: 5, comments: 2}, name: "TextIndex" } 
+)
+
+// create an index on multiple fields using the wildcard specifier
+db.collection.createIndex( { "$**": "text" } )
+```
+
+
+
+**Hashed Index**
+
+Hashed indexes maintain entries with hashes of the values of the indexed field and support sharing using hashed shard keys. 
+
+```javascript
+// single hashed index
+db.collection.createIndex( { _id: "hashed" } )
+
+// compound hashed index
+db.collection.createIndex( { "fieldA" : 1, "fieldB" : "hashed", "fieldC" : -1 } )
+```
+
+
+
+**Unique Index**
+
+The unique index property for an index causes MongoDB to reject duplicate values for the indexed field. 
+
+```javascript
+// user_id must be unique
+db.members.createIndex( { "user_id": 1 }, { unique: true } )
+
+// unique compound index
+db.members.createIndex( { groupNumber: 1, lastname: 1, firstname: 1 }, { unique: true } )
+```
+
+
+
+**Partial Index**
+
+Partial indexes only index the documents in a collection that meet a specified filter expression. By indexing a subset of the documents in a collection, partial indexes have lower storage requirements and reduced performance costs for index creation and maintenance.
+
+```javascript
+// creates a compound index that indexes only the documents 
+// with a rating field greater than 5.
+db.restaurants.createIndex(
+   { cuisine: 1, name: 1 },
+   { partialFilterExpression: { rating: { $gt: 5 } } }
+)
+```
+
+
+
+**TTL Index**
+
+TTL indexes expire documents after the specified number of seconds has passed since the indexed field value; i.e. the expiration threshold is the indexed field value plus the specified number of seconds. If the field is an array, and there are multiple date values in the index, MongoDB uses *lowest* (i.e. earliest) date value in the array to calculate the expiration threshold. If the indexed field in a document is not a date or an array that holds one or more date values, the document will not expire. If a document does not contain the indexed field, the document will not expire.
+
+```javascript
+// remove expired documents after 3600 seconds
+db.eventlog.createIndex( { "lastModifiedDate": 1 }, { expireAfterSeconds: 3600 } )
+```
+
+
+
+**Hidden Index**
+
+By hiding an index from the planner, users can evaluate the potential impact of dropping an index without actually dropping the index. If the impact is negative, the user can unhide the index instead of having to recreate a dropped index. Except for the `_id` index, you can hide any indexes.
+
+```javascript
+// creates a hidden ascending index on the borough field
+db.addresses.createIndex(
+   { borough: 1 },
+   { hidden: true }
+);
+
+// hide an existing index
+db.restaurants.hideIndex( { borough: 1 } )
+
+// you can also use the index name
+db.restaurants.hideIndex( "borough_1" )
 ```
 
 
@@ -567,12 +548,16 @@ db.laureates.aggregate([
 ## References
 
 1. https://en.wikipedia.org/wiki/MongoDB
-2. https://www.mongodb.com/developer/quickstart/cheat-sheet/
-2. https://app.datacamp.com/learn/courses/introduction-to-using-mongodb-for-data-science-with-python
-2. https://docs.mongodb.com/manual/crud/
-2. https://docs.mongodb.com/manual/reference/method/
-2. https://docs.mongodb.com/manual/reference/operator/
-2. https://docs.mongodb.com/manual/aggregation/
-2. https://www.mongodb.com/docs/manual/reference/operator/aggregation-pipeline/
-2. https://pymongo.readthedocs.io/en/stable/tutorial.html
-2. https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html
+2. https://www.mongodb.com/docs/manual/reference/sql-comparison/
+3. https://www.mongodb.com/developer/quickstart/cheat-sheet/
+4. https://docs.mongodb.com/manual/crud/
+5. https://docs.mongodb.com/manual/reference/method/
+6. https://docs.mongodb.com/manual/reference/operator/
+7. https://docs.mongodb.com/manual/aggregation/
+8. https://www.mongodb.com/docs/manual/reference/operator/aggregation-pipeline/
+9. https://www.mongodb.com/docs/manual/indexes/
+10. https://www.mongodb.com/docs/manual/core/index-sparse/
+11. https://www.mongodb.com/docs/manual/core/index-text/
+12. https://www.mongodb.com/docs/manual/core/index-hashed/
+13. https://www.mongodb.com/docs/manual/core/index-ttl/
+14. https://www.mongodb.com/docs/manual/core/index-hidden/
